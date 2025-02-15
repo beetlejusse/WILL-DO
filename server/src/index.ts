@@ -4,11 +4,18 @@ import mongoose from 'mongoose';
 import authRoutes  from '../src/routes/auth.routes';
 import contentRoutes  from './routes/content.routes';
 import brainRoutes  from './routes/brain.routes';
+import cors from 'cors';
 
 configDotenv();
 
 const app = express();
 app.use(express.json());
+app.use(
+    cors({
+        origin: "http://localhost:5173",
+        credentials: true
+    })
+);
 
 app.use("/api/v1/auth", authRoutes)
 app.use("/api/v1/content", contentRoutes)
