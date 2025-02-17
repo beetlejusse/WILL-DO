@@ -59,15 +59,17 @@ export function AddContentModal({ open, onClose }: AddContentModalProps) {
 interface InputBoxProps {
   onChange?: () => void;
   placeholder: string;
+  refrence?: any;
 }
 
-function InputBox({ onChange, placeholder }: InputBoxProps) {
+export function InputBox({ onChange, placeholder, refrence }: InputBoxProps) {
   return (
     <input
       type="text"
       placeholder={placeholder}
       className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:outline-none"
-      onChange={onChange}   
+      onChange={onChange}  
+      ref={refrence} 
     />
   );
 }
